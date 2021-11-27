@@ -15,9 +15,9 @@ public class Show extends Video {
     private int duration;
 
     public Show(final String title, final ArrayList<String> cast,
-                           final ArrayList<String> genres,
-                           final int numberOfSeasons, final ArrayList<Season> seasons,
-                           final int year) {
+                final ArrayList<String> genres,
+                final int numberOfSeasons, final ArrayList<Season> seasons,
+                final int year) {
         super(title, year, genres);
         this.cast = cast;
         this.numberOfSeasons = numberOfSeasons;
@@ -83,6 +83,15 @@ public class Show extends Video {
         ratingTotal = ratingTotal / numberOfSeasons;
     }
 
+    /**
+     *
+     */
+    public final void setDuration() {
+        for (var season : seasons) {
+            duration += season.getDuration();
+        }
+    }
+
     public final int getDuration() {
         return duration;
     }
@@ -90,7 +99,28 @@ public class Show extends Video {
         return ratingTotal;
     }
 
+    /**
+     *
+     * @param shows
+     * @param sortype
+     */
+    public static void sortAlphabeticallyShow(final ArrayList<Show> shows,
+                                              final String sortype) {
+        if (sortype.equals("asc")) {
+            shows.sort(new Comparator<>() {
+                @Override
+                public int compare(final Show show1, final Show show2) {
+                    return show1.getName().compareTo(show2.getName());
+                }
+            });
+        } else {
+            shows.sort(new Comparator<>() {
+                @Override
+                public int compare(final Show show1, final Show show2) {
+                    return show2.getName().compareTo(show1.getName());
+                }
+            });
+        }
+    }
 
 }
-
-

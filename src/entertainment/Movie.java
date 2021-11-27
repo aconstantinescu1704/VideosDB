@@ -12,8 +12,8 @@ public class Movie extends Video {
     private final Map<String, Double> ratingsUsers = new HashMap<>();
 
     public Movie(final String title, final ArrayList<String> cast,
-                          final ArrayList<String> genres, final int year,
-                          final int duration) {
+                 final ArrayList<String> genres, final int year,
+                 final int duration) {
         super(title, year, genres);
         this.actors = cast;
         this.duration = duration;
@@ -45,5 +45,27 @@ public class Movie extends Video {
         return ratingTotal;
     }
 
-
+    /**
+     *
+     * @param movies
+     * @param sortype
+     */
+    public static void sortAlphabeticallyMovie(final ArrayList<Movie> movies,
+                                               final String sortype) {
+        if (sortype.equals("asc")) {
+            movies.sort(new Comparator<>() {
+                @Override
+                public int compare(final Movie movie1, final Movie movie2) {
+                    return movie1.getName().compareTo(movie2.getName());
+                }
+            });
+        } else {
+            movies.sort(new Comparator<>() {
+                @Override
+                public int compare(final Movie movie1, final Movie movie2) {
+                    return movie2.getName().compareTo(movie1.getName());
+                }
+            });
+        }
+    }
 }
