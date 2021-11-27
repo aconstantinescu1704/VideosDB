@@ -90,6 +90,29 @@ public interface Action {
                 }
                 break;
             case "recommendation" :
+                switch ((action.getType())) {
+                    case "standard" :
+                        message = Recommendation.standardRecommendation(users,
+                                videos, action.getUsername());
+                        break;
+                    case "best_unseen" :
+                        message = Recommendation.bestUnseen(users,
+                                movies, shows, action.getUsername());
+                        break;
+                    case "popular" :
+                        message = Recommendation.popularRecommendation(users,
+                                videos, action.getUsername());
+                        break;
+                    case "favorite" :
+                        message = Recommendation.favoriteRecommendation(users,
+                                videos, action.getUsername());
+                        break;
+                    case "search" :
+                        message = Recommendation.searchRecommendation(users,
+                                videos, action.getUsername(),
+                                action.getGenre());
+                        break;
+                }
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + action.getActionType());

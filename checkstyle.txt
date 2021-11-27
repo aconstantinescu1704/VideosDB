@@ -8,6 +8,7 @@ Starting audit...
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:48:25: switch without "default" clause. [MissingSwitchDefault]
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:70:25: 'switch' is not followed by whitespace. [WhitespaceAround]
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:70:25: switch without "default" clause. [MissingSwitchDefault]
+[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:93:17: switch without "default" clause. [MissingSwitchDefault]
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Command.java:12:5: Missing a Javadoc comment. [MissingJavadocMethod]
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Command.java:42:5: Missing a Javadoc comment. [MissingJavadocMethod]
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Command.java:65:5: Missing a Javadoc comment. [MissingJavadocMethod]
@@ -22,4 +23,4 @@ Starting audit...
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\DB\VideoDatabase.java:1:9: Name 'DB' must match pattern '^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$'. [PackageName]
 [ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\main\Main.java:3:10: Using the '.*' form of import should be avoided - DB.*. [AvoidStarImport]
 Audit done.
-Checkstyle ends with 22 errors.
+Checkstyle ends with 23 errors.
