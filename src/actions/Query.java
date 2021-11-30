@@ -1,9 +1,13 @@
 package actions;
 
-import database.*;
 import actor.Actor;
 
 import audience.User;
+import database.ActorsDatabase;
+import database.MovieDatabase;
+import database.ShowDatabase;
+import database.UsersDatabase;
+import database.VideoDatabase;
 import entertainment.Movie;
 import entertainment.Show;
 import entertainment.Video;
@@ -124,7 +128,8 @@ public abstract class Query {
         if (actorsWithDescription.isEmpty()) {
             result.append("]");
         } else {
-            result.append(actorsWithDescription.get(actorsWithDescription.size() - 1).getName()).append("]");
+            result.append(actorsWithDescription.get(
+                    actorsWithDescription.size() - 1).getName()).append("]");
         }
         return result.toString();
     }
@@ -308,7 +313,8 @@ public abstract class Query {
     }
 
     /** method that sorts all shows by duration
-     *  before sorting the array we have to set the duration for each movie based on their seasons' duration
+     *  before sorting the array we have to set the duration for each movie
+     *  based on their seasons' duration
      * @param showDataBase the database in which all information about shows are stored
      * @param sortType sortType the type of sort : ascending or descending
      * @param number maximum number of videos that should appear in the string

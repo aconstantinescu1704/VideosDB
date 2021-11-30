@@ -1,6 +1,5 @@
 package database;
 
-import entertainment.Movie;
 import entertainment.Video;
 
 import java.util.ArrayList;

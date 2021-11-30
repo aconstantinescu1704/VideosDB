@@ -1,20 +1,4 @@
 Starting audit...
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:3:16: Using the '.*' form of import should be avoided - database.*. [AvoidStarImport]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:27:48: Inner assignments should be avoided. [InnerAssignment]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:29:44: Inner assignments should be avoided. [InnerAssignment]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:31:46: Inner assignments should be avoided. [InnerAssignment]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:34: Line is longer than 100 characters (found 104). [LineLength]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:41:89: '3' is a magic number. [MagicNumber]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:43: Line is longer than 100 characters (found 108). [LineLength]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Query.java:3:16: Using the '.*' form of import should be avoided - database.*. [AvoidStarImport]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Query.java:127: Line is longer than 100 characters (found 109). [LineLength]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Query.java:311: Line is longer than 100 characters (found 108). [LineLength]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Recommendation.java:88: Line is longer than 100 characters (found 103). [LineLength]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Recommendation.java:143: Line is longer than 100 characters (found 101). [LineLength]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actor\Actor.java:3:8: Unused import - database.MovieDatabase. [UnusedImports]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actor\Actor.java:4:8: Unused import - database.ShowDatabase. [UnusedImports]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\database\ActorsDatabase.java:7:17: Using the '.*' form of import should be avoided - java.util.*. [AvoidStarImport]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\database\VideoDatabase.java:3:8: Unused import - entertainment.Movie. [UnusedImports]
-[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\main\Main.java:3:16: Using the '.*' form of import should be avoided - database.*. [AvoidStarImport]
+[ERROR] C:\Users\Tibi Constantinescu\Documents\Ana\facultate\teme-poo\oop-asignments-master\oop-asignments-master\teme\tema\.\src\actions\Action.java:52:89: '3' is a magic number. [MagicNumber]
 Audit done.
-Checkstyle ends with 17 errors.
+Checkstyle ends with 1 errors.

@@ -1,7 +1,5 @@
 package actor;
 
-import database.MovieDatabase;
-import database.ShowDatabase;
 import database.VideoDatabase;
 
 import java.util.ArrayList;

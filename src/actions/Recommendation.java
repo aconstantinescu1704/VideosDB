@@ -85,9 +85,10 @@ public abstract class Recommendation {
 
     }
 
-    /** method that find the first video that has not been viewed by a user from the most popular genre
-     * The popularity of a genre is set by calculating the number of views of all videos that belong
-     * to the genre
+    /** method that find the first video that has not been viewed by a user
+     * from the most popular genre
+     * The popularity of a genre is set by calculating the number of views of all
+     * videos that belong to the genre
      * @param usersDataBase the databased where are stored all information about users
      * @param videoDataBase the databased where are stored all information about videos
      * @param username the user's username for which we are giving the recommendation
@@ -140,8 +141,8 @@ public abstract class Recommendation {
 
     }
 
-    /** method that find the first video that has not been viewed by a user and that appears the most
-     * int the users' favorite lists
+    /** method that find the first video that has not been viewed by a user and
+     * that appears the most in the users' favorite lists
      * @param usersDataBase the databased where are stored all information about users
      * @param videoDataBase the databased where are stored all information about videos
      * @param username the user's username for which we are giving the recommendation

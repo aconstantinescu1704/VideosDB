@@ -1,6 +1,10 @@
 package actions;
 
-import database.*;
+import database.ActorsDatabase;
+import database.MovieDatabase;
+import database.ShowDatabase;
+import database.UsersDatabase;
+import database.VideoDatabase;
 import fileio.ActionInputData;
 
 public interface Action {
@@ -24,14 +28,21 @@ public interface Action {
         switch (action.getActionType()) {
             case "command" :
                 switch (action.getType()) {
-                    case "favorite" -> message = Command.commandFavorite(users,
-                            action.getUsername(), action.getTitle());
-                    case "view" -> message = Command.commandView(users,
-                            action.getUsername(), action.getTitle());
-                    case "rating" -> message = Command.commandRating(users,
-                            movies, shows, action.getUsername(), action.getTitle(),
-                            action.getGrade(), action.getSeasonNumber());
-                    default -> throw new IllegalStateException("Unexpected value: " + action.getType());
+                    case "favorite" -> {
+                        message = Command.commandFavorite(users,
+                                action.getUsername(), action.getTitle());
+                    }
+                    case "view" -> {
+                        message = Command.commandView(users,
+                                action.getUsername(), action.getTitle());
+                    }
+                    case "rating" -> {
+                        message = Command.commandRating(users,
+                                movies, shows, action.getUsername(), action.getTitle(),
+                                action.getGrade(), action.getSeasonNumber());
+                    }
+                    default -> throw new IllegalStateException("Unexpected value: "
+                            + action.getType());
                 }
                 break;
             case "query":
@@ -40,8 +51,8 @@ public interface Action {
                             action.getNumber(), action.getSortType());
                     case "awards" -> Query.awardsActors(actors, action.getFilters().get(3),
                             action.getSortType());
-                    case "filter_description" -> Query.filterDescription(actors, action.getFilters().get(2),
-                            action.getSortType());
+                    case "filter_description" -> Query.filterDescription(actors,
+                            action.getFilters().get(2), action.getSortType());
                     case "ratings" -> switch ((action.getObjectType())) {
                         case "movies" -> Query.ratingMovies(movies, action.getSortType(),
                                 action.getNumber(), action.getFilters());

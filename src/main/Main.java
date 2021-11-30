@@ -1,10 +1,14 @@
 package main;
 
-import database.*;
 import actions.Action;
 import checker.Checkstyle;
 import checker.Checker;
 import common.Constants;
+import database.ActorsDatabase;
+import database.MovieDatabase;
+import database.ShowDatabase;
+import database.UsersDatabase;
+import database.VideoDatabase;
 import fileio.ActionInputData;
 import fileio.Input;
 import fileio.InputLoader;

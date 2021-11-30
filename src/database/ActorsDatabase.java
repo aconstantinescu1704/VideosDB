@@ -4,7 +4,10 @@ import actor.Actor;
 import actor.ActorsAwards;
 import fileio.ActorInputData;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ActorsDatabase {
     private final ArrayList<Actor> actors = new ArrayList<>();
