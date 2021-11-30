@@ -52,6 +52,11 @@ public class User {
                 numberRatings++;
             }
         }
+        for (var show : showDataBase.getSerials()) {
+            if (show.getRatingsUsers().containsKey(username)) {
+                numberRatings++;
+            }
+        }
     }
 
     public final int getNumberRatings() {
