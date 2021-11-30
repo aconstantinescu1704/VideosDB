@@ -1,9 +1,9 @@
 package actions;
 
-import DB.MovieDatabase;
-import DB.ShowDatabase;
-import DB.UsersDatabase;
-import DB.VideoDatabase;
+import database.MovieDatabase;
+import database.ShowDatabase;
+import database.UsersDatabase;
+import database.VideoDatabase;
 import audience.User;
 import entertainment.Video;
 
@@ -15,12 +15,11 @@ import java.util.Map;
 
 public abstract class Recommendation {
 
-    /**
-     *
-     * @param usersDataBase
-     * @param videoDataBase
-     * @param username
-     * @return
+    /** method that finds the first video that has not been viewed by a user
+     * @param usersDataBase the databased where are stored all information about users
+     * @param videoDataBase the databased where are stored all information about videos
+     * @param username the user's username for which we are giving the recommendation
+     * @return the string that should pe printed in the result json
      */
     public static String standardRecommendation(final UsersDatabase usersDataBase,
                                                 final VideoDatabase videoDataBase,
@@ -44,13 +43,13 @@ public abstract class Recommendation {
         return result;
     }
 
-    /**
-     *
-     * @param usersDataBase
-     * @param movieDataBase
-     * @param showDataBase
-     * @param username
-     * @return
+    /** method that finds the first video that has not been viewed by a user
+     * and that has the best rating
+     * @param usersDataBase the databased where are stored all information about users
+     * @param movieDataBase the databased where are stored all information about movies
+     * @param showDataBase the databased where are stored all information about shows
+     * @param username the user's username for which we are giving the recommendation
+     * @return the string that should pe printed in the result json
      */
     public static String bestUnseen(final UsersDatabase usersDataBase,
                                     final MovieDatabase movieDataBase,
@@ -86,12 +85,13 @@ public abstract class Recommendation {
 
     }
 
-    /**
-     *
-     * @param usersDataBase
-     * @param videoDataBase
-     * @param username
-     * @return
+    /** method that find the first video that has not been viewed by a user from the most popular genre
+     * The popularity of a genre is set by calculating the number of views of all videos that belong
+     * to the genre
+     * @param usersDataBase the databased where are stored all information about users
+     * @param videoDataBase the databased where are stored all information about videos
+     * @param username the user's username for which we are giving the recommendation
+     * @return the string that should pe printed in the result json
      */
     public static String popularRecommendation(final UsersDatabase usersDataBase,
                                                final VideoDatabase videoDataBase,
@@ -140,12 +140,12 @@ public abstract class Recommendation {
 
     }
 
-    /**
-     *
-     * @param usersDataBase
-     * @param videoDataBase
-     * @param username
-     * @return
+    /** method that find the first video that has not been viewed by a user and that appears the most
+     * int the users' favorite lists
+     * @param usersDataBase the databased where are stored all information about users
+     * @param videoDataBase the databased where are stored all information about videos
+     * @param username the user's username for which we are giving the recommendation
+     * @return the string that should pe printed in the result json
      */
     public static String favoriteRecommendation(final UsersDatabase usersDataBase,
                                                 final VideoDatabase videoDataBase,
@@ -178,13 +178,13 @@ public abstract class Recommendation {
 
     }
 
-    /**
-     *
-     * @param usersDataBase
-     * @param videoDataBase
-     * @param username
-     * @param genre
-     * @return
+    /** method that finds all videos from a given genre that have not been viewed by a user
+     * the videos will appear sorted by rating, the second criteria being the title(alphabetically)
+     * @param usersDataBase the databased where are stored all information about users
+     * @param videoDataBase the databased where are stored all information about videos
+     * @param username the user's username for which we are giving the recommendation
+     * @param genre the given genre in the action input
+     * @return the string that should pe printed in the result json
      */
     public static String searchRecommendation(final UsersDatabase usersDataBase,
                                               final VideoDatabase videoDataBase,
@@ -209,7 +209,7 @@ public abstract class Recommendation {
                 searchVideos.add(video);
             }
         }
-        Video.sortAlphabetically(searchVideos, "asc");
+        VideoDatabase.sortAlphabeticallyVideo(searchVideos, "asc");
         searchVideos.sort((video1, video2) ->
                 Double.compare(video1.getRatingTotal(), video2.getRatingTotal()));
 

@@ -11,7 +11,7 @@ import java.util.Map;
 public final class Season {
 
     private final int currentSeason;
-    private int duration;
+    private final int duration;
     private final Map<String, Double> ratingsUsers = new HashMap<>();
     private Double ratingTotal = 0.0;
 
@@ -29,7 +29,8 @@ public final class Season {
     }
 
     /**
-     *
+     * method that sets the total rating of a season based on all ratings given by users
+     * the total rating is calculated as the average sum of all users rating
      */
     public void setRatingTotal() {
         ratingTotal = 0.0;

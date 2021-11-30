@@ -36,3 +36,63 @@ Run Main to test your implementation from the IDE or from command line.
 
 Run the main method from Test class with the name of the input file from the command line and the result will be written
 to the out.txt file. Thus, you can compare this result with ref.
+
+# Code
+
+    The project starts with processing the input and storing the data into specific class objects.
+    Therefore, we have created the following packages and classes for a better suggestive and logic representation of all entities:
+
+    * database : - here we have all classes that stores arrays of entertainment entities which will be processed in the given tasks
+                 - all constructors populate the object arrays with input data processed in the "fileio" package classes
+                 - all database classes are in !a aggregation relationship! with the specific entertainment entity
+        - ActorsDatabase = - constructs and stores all information about actors in an array of actors
+                           - also can perform sorting or process the database into a new hashmap or array where are stored information
+                             about specific actors. All these actions are expressed through methods that ease the work with the given tasks
+                           - all methods are logically related with all actors
+        - MovieDatabase = - constructs and stores all information about movies in an array of movies
+                          - also can perform sorting action
+        - ShowDatabase =  - constructs and stores all information about shows in an array of shows
+                          - also can perform sorting action
+        - UserDatabase =  - constructs and stores all information about users in an array of users
+        - VideoDatabase = - stores references to all movies and shows which were already read
+                          - has the purpose of easing the work with processing the information by having both entities stored in the same array
+
+    * entertainment : - here we have classes of all entertainment entities( Video, Show, Season, Movie) were we store the characteristics
+                        and methods of those entities
+        - Video = - abstract class that can't be instantiated since it's used to force all classes that extends her to have specific implemented methods
+                    that performs the same action in different ways
+                  - the class also contains methods that can be performed for all entities whether they are movies or shows.
+                  - the class is in a composition relationship with UserDatabase class since many actions depend on all users activity
+          Movie = - class that extends Video and promises to implement the abstract methods in Video
+                  - the class stores as properties specific movie characteristics
+          Show =  - class that extends Video and promises to implement the abstract methods in Video
+                  - the class stores as properties specific show characteristics
+                  - is in !an aggregation relationship! with season class
+          Season = - the class stores as properties specific season characteristics
+
+    * actor : - here we have all classes and enums specific to actors
+        - Actor = - the class stores as properties specific actor characteristics such as name, rating, filmography
+        - ActorsAwards = enum with all possible awards won by an actor
+
+    * audience :
+        - User : - he class stores as properties specific user characteristics
+                 - the class is in a composition relationship with MovieDatabase and ShowDatabase since the number of
+                   ratings depend on its previous activity for each movie or show
+
+    *actions :
+                - the command, query, recommendation classes are abstract to avoid an instantiation that doesn't make logical sense
+                - all methods are static since they don't depend on an object instantiation
+                - all methods return a string which contains the required message
+        - Action : - an interface that can execute the intended action based on the received input data
+                 : - the method makes a choice of function that needs to be called based on the actionType, criteria, objectType etc
+                 : - the methods needs to have the databases as parameters on which it can perform the action
+        - Command : - the first task through which the user can view, add to favorites or rate a movie or show
+                    - this is the action that populates the rating/history/favorites fields based on the received parameters
+        - Query :  - the second task shows filtered and sorted data for the requested database
+        - Recommendation : the third task shows different movies and serials based on recommendation strategies
+
+     THE FLOW OF THE PROGRAMME:
+        The data input is processed and stored in databases(arrays) of certain entertainment objects.
+        Based on the action input a certain action is chosen in the action class and then a certain method specific a type of action
+        is called. The method receives as parameters the databases which should be processed and the further required information needed
+        to successfully finalize the task. All methods return a string that is later written in the jsonArray and displayed in the output files.

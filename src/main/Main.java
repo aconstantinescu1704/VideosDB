@@ -1,6 +1,6 @@
 package main;
 
-import DB.*;
+import database.*;
 import actions.Action;
 import checker.Checkstyle;
 import checker.Checker;
@@ -78,11 +78,10 @@ public final class Main {
         //TODO add here the entry point to your implementation
 
         UsersDatabase users = new UsersDatabase(input.getUsers());
-        VideoDatabase videos = new VideoDatabase(input.getMovies(), input.getSerials());
         MovieDatabase movies = new MovieDatabase(input.getMovies());
         ShowDatabase shows = new ShowDatabase(input.getSerials());
+        VideoDatabase videos = new VideoDatabase(movies, shows);
         ActorsDatabase actors = new ActorsDatabase((input.getActors()));
-     //   System.out.println(users.getUsers().get(1));
 
         List<ActionInputData> actions = input.getCommands();
         for (var action : actions) {

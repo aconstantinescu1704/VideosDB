@@ -1,7 +1,8 @@
 package actor;
 
-import DB.MovieDatabase;
-import DB.ShowDatabase;
+import database.MovieDatabase;
+import database.ShowDatabase;
+import database.VideoDatabase;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -39,33 +40,22 @@ public class Actor {
         return careerDescription;
     }
 
-    /**
-     * @param movieDataBase
-     * @param showDataBase
+    /** method that based on the previous commands sets the rating of an actor
+     * the rating is calculated as the average sum of all his rated videos
+     * @param videoDatabase the databased where are stored all information about videos
      */
-    public final void setRatingFilmographyActor(final MovieDatabase movieDataBase,
-                                                final ShowDatabase showDataBase) {
+    public final void setRatingFilmographyActor(final VideoDatabase videoDatabase) {
 
         ratingFilmographyActor = 0.0;
         int nrRatedMovies = 0;
         int nrRatedShows = 0;
         for (var film : filmography) {
-            for (var movies : movieDataBase.getMovies()) {
+            for (var movies : videoDatabase.getVideos()) {
                 movies.setRatingTotal();
                 if ((movies.getName()).equals(film)) {
                     if (movies.getRatingTotal() > 0) {
                         ratingFilmographyActor = ratingFilmographyActor + movies.getRatingTotal();
                         nrRatedMovies++;
-                    }
-
-                }
-            }
-            for (var shows : showDataBase.getSerials()) {
-                shows.setRatingTotal();
-                if ((shows.getName()).equals(film)) {
-                    if (shows.getRatingTotal() > 0) {
-                        ratingFilmographyActor = ratingFilmographyActor + shows.getRatingTotal();
-                        nrRatedShows++;
                     }
                 }
             }

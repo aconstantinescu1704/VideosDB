@@ -1,7 +1,6 @@
 package entertainment;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,20 +36,15 @@ public class Show extends Video {
         return seasons;
     }
 
-    /**
-     *
-     * @return
-     */
     public final Map<String, Double> getRatingsUsers() {
         return ratingsUsers;
     }
 
-    /**
-     *
-     * @param user
-     * @return
+    /** method that sets the rating of a show for a user
+     *  the rating is set by calculating an average sum of the rating for all rated seasons
+     * @param user the username of the user for which we set the rating
      */
-    public final Double setRatingShow(final String user) {
+    public final void setRatingShow(final String user) {
 
         Double rating = 0.0;
         int contor = 0;
@@ -62,15 +56,13 @@ public class Show extends Video {
         }
         if (contor == 1) {
             ratingsUsers.put(user, rating);
-            return rating;
         }
         rating = rating / contor;
         ratingsUsers.replace(user, rating);
-        return rating;
     }
 
     /**
-     *
+     * method that sets the total rating of a show based on all users' ratings
      */
     public final void setRatingTotal() {
         ratingTotal = 0;
@@ -83,8 +75,12 @@ public class Show extends Video {
         ratingTotal = ratingTotal / numberOfSeasons;
     }
 
+    public final double getRatingTotal() {
+        return ratingTotal;
+    }
+
     /**
-     *
+     * calculates the duration for a show based on its seasons' duration
      */
     public final void setDuration() {
         for (var season : seasons) {
@@ -95,32 +91,6 @@ public class Show extends Video {
     public final int getDuration() {
         return duration;
     }
-    public final double getRatingTotal() {
-        return ratingTotal;
-    }
 
-    /**
-     *
-     * @param shows
-     * @param sortype
-     */
-    public static void sortAlphabeticallyShow(final ArrayList<Show> shows,
-                                              final String sortype) {
-        if (sortype.equals("asc")) {
-            shows.sort(new Comparator<>() {
-                @Override
-                public int compare(final Show show1, final Show show2) {
-                    return show1.getName().compareTo(show2.getName());
-                }
-            });
-        } else {
-            shows.sort(new Comparator<>() {
-                @Override
-                public int compare(final Show show1, final Show show2) {
-                    return show2.getName().compareTo(show1.getName());
-                }
-            });
-        }
-    }
 
 }

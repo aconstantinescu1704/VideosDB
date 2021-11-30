@@ -1,4 +1,4 @@
-package DB;
+package database;
 
 import audience.User;
 import fileio.UserInputData;
@@ -13,10 +13,10 @@ public class UsersDatabase {
     public UsersDatabase(final List<UserInputData> users) {
         List<User> list = new ArrayList<>();
 
-        for (int i = 0; i < users.size(); i++) {
-            User util = new User(users.get(i).getUsername(),
-                    users.get(i).getSubscriptionType(), users.get(i).getHistory(),
-                    users.get(i).getFavoriteMovies());
+        for (UserInputData user : users) {
+            User util = new User(user.getUsername(),
+                    user.getSubscriptionType(), user.getHistory(),
+                    user.getFavoriteMovies());
 
             list.add(util);
         }

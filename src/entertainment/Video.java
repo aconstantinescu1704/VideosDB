@@ -1,9 +1,8 @@
 package entertainment;
 
-import DB.UsersDatabase;
+import database.UsersDatabase;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public abstract class Video {
@@ -13,6 +12,7 @@ public abstract class Video {
     private final ArrayList<String> genres;
     private int favoriteNumberUsers;
     private int numberViews;
+
 
     public Video(final String title, final int year, final ArrayList<String> genres) {
         this.name = title;
@@ -34,10 +34,9 @@ public abstract class Video {
         return genres;
     }
 
-    /**
-     *
-     * @param filters
-     * @return
+    /** method that checks if the required filters are respected by the video's characteristics
+     * @param filters a list of lists of given filters
+     * @return a boolean that expresses whether the filters were matched
      */
     public final boolean checkFiltersMatch(final List<List<String>> filters) {
 
@@ -57,9 +56,8 @@ public abstract class Video {
         return true;
     }
 
-    /**
-     *
-     * @param usersDataBase
+    /** method that sets the number of views for a video based on the users' activity
+     * @param usersDataBase the databased where are stored all information about users
      */
     public final void setNumberViews(final UsersDatabase usersDataBase) {
         for (var user : usersDataBase.getUsers()) {
@@ -73,9 +71,8 @@ public abstract class Video {
         return numberViews;
     }
 
-    /**
-     *
-     * @param usersDataBase
+    /** method that sets the number of appearances in users' favorite list
+     * @param usersDataBase the databased where are stored all information about users
      */
     public final void setFavoriteNumberUsers(final UsersDatabase usersDataBase) {
         for (var users : usersDataBase.getUsers()) {
@@ -90,35 +87,14 @@ public abstract class Video {
     }
 
     /**
-     *
-     * @param videos
-     * @param sortype
-     */
-    public static void sortAlphabetically(final ArrayList<Video> videos,
-                                          final String sortype) {
-        if (sortype.equals("asc")) {
-            videos.sort(new Comparator<>() {
-                @Override
-                public int compare(final Video video1, final Video video2) {
-                    return video1.getName().compareTo(video2.getName());
-                }
-            });
-        } else {
-            videos.sort(new Comparator<>() {
-                @Override
-                public int compare(final Video video1, final Video video2) {
-                    return video2.getName().compareTo(video1.getName());
-                }
-            });
-        }
-    }
-
-    /**
+     *  method that needs to be implemented by all classes that extend video
+     *  it must set the total rating of the video
      */
     public abstract void setRatingTotal();
 
     /**
-     * @return
+     *  method that needs to be implemented by all classes that extend video
+     * @return the rating of a video
      */
     public abstract double getRatingTotal();
 }

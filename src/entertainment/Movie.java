@@ -1,6 +1,5 @@
 package entertainment;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +8,9 @@ public class Movie extends Video {
     private final ArrayList<String> actors;
     private final int duration;
     private double ratingTotal = 0.0;
+    /*
+     hashmap that maps the username with his rating for the movie
+     */
     private final Map<String, Double> ratingsUsers = new HashMap<>();
 
     public Movie(final String title, final ArrayList<String> cast,
@@ -30,7 +32,8 @@ public class Movie extends Video {
     }
 
     /**
-     *
+     * method that sets the total rating of a movie based on all ratings given by users
+     * the total rating is calculated as the average sum of all users rating
      */
     public final void setRatingTotal() {
         ratingTotal = 0;
@@ -45,27 +48,5 @@ public class Movie extends Video {
         return ratingTotal;
     }
 
-    /**
-     *
-     * @param movies
-     * @param sortype
-     */
-    public static void sortAlphabeticallyMovie(final ArrayList<Movie> movies,
-                                               final String sortype) {
-        if (sortype.equals("asc")) {
-            movies.sort(new Comparator<>() {
-                @Override
-                public int compare(final Movie movie1, final Movie movie2) {
-                    return movie1.getName().compareTo(movie2.getName());
-                }
-            });
-        } else {
-            movies.sort(new Comparator<>() {
-                @Override
-                public int compare(final Movie movie1, final Movie movie2) {
-                    return movie2.getName().compareTo(movie1.getName());
-                }
-            });
-        }
-    }
+
 }
